@@ -1,15 +1,23 @@
 #!/bin/bash
 
-OK="\033[1;32m[ OK ]\033[0m\n"
-FAIL="\033[1;31m[ FAIL ]\033[0m\n"
+GREEN="\033[1;32m"
+RED="\033[1;31m"
+PURPLE="\033[1;35m"
+RESET="\033[0m"
 
+OK=" ${GREEN}[ OK ]${RESET}"
+FAIL=" ${RED}[ FAIL ]${RESET}"
+
+##BASIC TESTERS
 
 #TEST 1
 
+printf "\n${PURPLE}=============== BASIC ===============${RESET}\n"
 ../pipex file1 "cat" "wc -l" file2
 < file1 cat | wc -l > file3
 
-printf "TEST 1: "
+printf "\ncat | wc -l:   "
+
 if [ $(diff file2 file3 | wc -l) == 0 ]
 then
     printf "${OK}"
@@ -23,10 +31,15 @@ fi
 ../pipex file1 "cat" "grep Yes" file2
 < file1 cat | grep Yes > file3
 
-printf "TEST 2: "
+printf "\ncat | grep Yes:"
+
 if [ $(diff file2 file3 | wc -l) == 0 ]
 then
     printf "${OK}"
 else
     printf "${FAIL}"
 fi
+
+printf "\n"
+
+printf "\n"
