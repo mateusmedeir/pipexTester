@@ -9,20 +9,30 @@ RESET="\033[0m"
 OK=" ${GREEN}[ OK ]${RESET}"
 FAIL=" ${RED}[ KO ]${RESET}"
 
-#=============== BASIC TESTERS ===============#
 
+make -C ../
+mkdir outputs
 
-#TEST 1
+#=================================== TESTERS ===================================#
+
 
 printf "\n${BLUE}=============== ${BOLD}PIPEX TESTER${BLUE} ===============${RESET}\n"
 
-printf "\n${BOLD}BASIC${RESET}\n"
-../pipex file1 "cat" "wc -l" file2
-< file1 cat | wc -l > file3
 
-printf "\ncat | wc -l:      "
+#========================= MANDATORY =========================#
 
-if [ $(diff file2 file3 | wc -l) == 0 ]
+
+printf "\n${BOLD}MANDATORY${RESET}\n"
+
+#TEST 1
+
+
+../pipex src/file.txt "cat" "wc -l" outputs/mand-test-1-result.txt
+< src/file.txt cat | wc -l > outputs/mand-test-1-expected.txt
+
+printf "\ncat | wc -l:        "
+
+if [ $(diff outputs/mand-test-1-result.txt outputs/mand-test-1-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
@@ -32,26 +42,61 @@ fi
 
 #TEST 2
 
-../pipex file1 "cat" "grep Yes" file2
-< file1 cat | grep Yes > file3
 
-printf "\ncat | grep:       "
+../pipex src/file.txt "cat" "grep Temos" outputs/mand-test-2-result.txt
+< src/file.txt cat | grep Temos > outputs/mand-test-2-expected.txt
 
-if [ $(diff file2 file3 | wc -l) == 0 ]
+printf "\ncat | grep:         "
+
+if [ $(diff outputs/mand-test-2-result.txt outputs/mand-test-2-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
     printf "${FAIL}"
 fi
 
+
 #TEST 3
 
-../pipex file1 "cat" "head -n 5" file2
-< file1 cat | head -n 5 > file3
 
-printf "\ncat | head -n 5:  "
+../pipex src/file.txt "cat" "head -n 5" outputs/mand-test-3-result.txt
+< src/file.txt cat | head -n 5 > outputs/mand-test-3-expected.txt
 
-if [ $(diff file2 file3 | wc -l) == 0 ]
+printf "\ncat | head -n 5:    "
+
+if [ $(diff outputs/mand-test-3-result.txt outputs/mand-test-3-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 4
+
+
+../pipex src/file.txt "cat" "uniq" outputs/mand-test-4-result.txt
+< src/file.txt cat | uniq > outputs/mand-test-4-expected.txt
+
+printf "\ncat | uniq:         "
+
+if [ $(diff outputs/mand-test-4-result.txt outputs/mand-test-4-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 5
+
+
+../pipex src/file.txt "grep -i a" "wc -l" outputs/mand-test-5-result.txt
+< src/file.txt grep -i a | wc -l > outputs/mand-test-5-expected.txt
+
+printf "\ngrep -i a | wc -l:  "
+
+if [ $(diff outputs/mand-test-5-result.txt outputs/mand-test-5-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
