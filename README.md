@@ -12,6 +12,8 @@ First you need to clone this repository inside your pipex directory.
 git clone https://github.com/mateusmedeir/pipexTester.git
 ```
 
+### Running script
+
 Run the script inside the repository.
 
 ```shell
