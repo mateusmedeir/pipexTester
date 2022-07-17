@@ -168,6 +168,22 @@ else
 fi
 
 
+#TEST 10
+
+
+../pipex src/file.txt "sort" "ola" outputs/mand-test-10-result.txt 2> outputs/mand-test-10-result.txt
+< src/file.txt sort | ola > outputs/mand-test-10-expected.txt 2> outputs/mand-test-10-expected.txt
+
+printf "\nsort | ola:             "
+
+if [ $(grep -i "Command" outputs/mand-test-10-result.txt | wc -l) != 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
 printf "\n"
 
 
