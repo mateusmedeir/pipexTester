@@ -104,6 +104,54 @@ else
 fi
 
 
+#TEST 6
+
+
+../pipex src/file.txt "grep -i a" "uniq" outputs/mand-test-6-result.txt
+< src/file.txt grep -i a | uniq > outputs/mand-test-6-expected.txt
+
+printf "\ngrep -i a | uniq:   "
+
+if [ $(diff outputs/mand-test-6-result.txt outputs/mand-test-6-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 7
+
+
+../pipex ../ "ls -l" "wc -l" outputs/mand-test-7-result.txt
+< ../ ls -l | wc -l > outputs/mand-test-7-expected.txt
+
+printf "\nls -l | wc -l:      "
+
+if [ $(diff outputs/mand-test-7-result.txt outputs/mand-test-7-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 8
+
+
+../pipex ../ "ls -a" "sort" outputs/mand-test-8-result.txt
+< ../ ls -a | sort > outputs/mand-test-8-expected.txt
+
+printf "\nls -a | sort:       "
+
+if [ $(diff outputs/mand-test-8-result.txt outputs/mand-test-8-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
 printf "\n"
 
 
