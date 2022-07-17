@@ -9,7 +9,7 @@
 First you need to clone this repository inside your pipex directory.
 
 ```shell
-git clone git@github.com:mateusmedeir/pipexTester.git
+git clone https://github.com/mateusmedeir/pipexTester.git
 ```
 
 Run the script inside the repository.
