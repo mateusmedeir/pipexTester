@@ -11,6 +11,7 @@ FAIL=" ${RED}[ KO ]${RESET}"
 
 
 make -C ../
+gcc -o ../pipex -L../ -lftpipex
 mkdir outputs
 
 #=================================== TESTERS ===================================#
