@@ -156,10 +156,10 @@ fi
 #TEST 9
 
 
-../pipex src/file.txt "sort" "awk '{print $1}'" outputs/mand-test-9-result.txt 2> /dev/null
+../pipex src/file.txt "sort" "awk '{print \$1}'" outputs/mand-test-9-result.txt 2> /dev/null
 < src/file.txt sort | awk '{print $1}' > outputs/mand-test-9-expected.txt
 
-printf "\nsort | awk '{print "$"1}': "
+printf "\nsort | awk '{print \$1}':"
 
 if [ $(diff outputs/mand-test-9-result.txt outputs/mand-test-9-expected.txt | wc -l) == 0 ]
 then
