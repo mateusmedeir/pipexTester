@@ -23,7 +23,7 @@ printf "\n${BLUE}=============== ${BOLD}PIPEX TESTER${BLUE} ===============${RES
 #========================= MANDATORY =========================#
 
 
-printf "\n${BOLD}MANDATORY                   Basics${RESET}\n"
+printf "\n${BOLD}MANDATORY                   Output${RESET}\n"
 
 #TEST 1
 
