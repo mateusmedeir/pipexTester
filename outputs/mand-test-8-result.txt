@@ -1,7 +1,0 @@
-.
-..
-.git
-README.md
-outputs
-src
-tester.sh
