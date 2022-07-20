@@ -47,7 +47,7 @@ fi
 ../pipex src/file.txt "cat" "grep Temos" outputs/mand-test-2-result.txt 2> /dev/null
 < src/file.txt cat | grep Temos > outputs/mand-test-2-expected.txt
 
-printf "\ncat | grep:                "
+printf "\ncat | grep Temos:          "
 
 if [ $(diff outputs/mand-test-2-result.txt outputs/mand-test-2-expected.txt | wc -l) == 0 ]
 then
@@ -210,6 +210,22 @@ fi
 printf "\nsort | grep "\'"              "
 
 if [ $(diff outputs/mand-test-12-result.txt outputs/mand-test-12-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 13
+
+
+../pipex src/file.txt "sort" "grep \"man'hã\"" outputs/mand-test-13-result.txt
+< src/file.txt sort | grep "man'hã" > outputs/mand-test-13-expected.txt
+
+printf "\nsort | grep man"\'"hã:        "
+
+if [ $(diff outputs/mand-test-13-result.txt outputs/mand-test-13-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
