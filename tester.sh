@@ -205,10 +205,10 @@ fi
 #TEST 12
 
 
-../pipex src/file.txt "sort" "grep \"'\"" outputs/mand-test-12-result.txt
+../pipex src/file.txt "sort" "grep '" outputs/mand-test-12-result.txt
 < src/file.txt sort | grep "'" > outputs/mand-test-12-expected.txt
 
-printf "\nsort | grep "\'"              "
+printf "\nsort | grep '              "
 
 if [ $(diff outputs/mand-test-12-result.txt outputs/mand-test-12-expected.txt | wc -l) == 0 ]
 then
@@ -221,10 +221,10 @@ fi
 #TEST 13
 
 
-../pipex src/file.txt "sort" "grep \"man'hã\"" outputs/mand-test-13-result.txt
+../pipex src/file.txt "sort" "grep man'hã" outputs/mand-test-13-result.txt
 < src/file.txt sort | grep "man'hã" > outputs/mand-test-13-expected.txt
 
-printf "\nsort | grep man"\'"hã:        "
+printf "\nsort | grep man\'hã:        "
 
 if [ $(diff outputs/mand-test-13-result.txt outputs/mand-test-13-expected.txt | wc -l) == 0 ]
 then
