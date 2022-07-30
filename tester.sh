@@ -3,10 +3,12 @@
 BLUE="\033[1;34m"
 GREEN="\033[1;32m"
 RED="\033[1;31m"
+YELLOW="\033[1;33m"
 BOLD="\033[1;37m"
 RESET="\033[0m"
 
 OK=" ${GREEN}[ OK ]${RESET}"
+KO=" ${YELLOW}[ KO ]${RESET}"
 FAIL=" ${RED}[ KO ]${RESET}"
 
 
@@ -166,7 +168,7 @@ if [ $(diff outputs/mand-test-9-result.txt outputs/mand-test-9-expected.txt | wc
 then
     printf "${OK}"
 else
-    printf "${FAIL}"
+    printf "${KO}"
 fi
 
 
@@ -198,7 +200,7 @@ if [ $(diff outputs/mand-test-11-result.txt outputs/mand-test-11-expected.txt | 
 then
     printf "${OK}"
 else
-    printf "${FAIL}"
+    printf "${KO}"
 fi
 
 
@@ -214,7 +216,7 @@ if [ $(diff outputs/mand-test-12-result.txt outputs/mand-test-12-expected.txt | 
 then
     printf "${OK}"
 else
-    printf "${FAIL}"
+    printf "${KO}"
 fi
 
 
@@ -230,9 +232,33 @@ if [ $(diff outputs/mand-test-13-result.txt outputs/mand-test-13-expected.txt | 
 then
     printf "${OK}"
 else
-    printf "${FAIL}"
+    printf "${KO}"
 fi
 
+
+printf "\n"
+
+
+#========================= BONUS 1 =========================#
+
+
+printf "\n${BOLD}BONUS 1                     Output${RESET}\n"
+
+
+#TEST 1
+
+
+../pipex src/file.txt "cat" "uniq" "wc -l" outputs/bonus1-test-1-result.txt 2> /dev/null
+< src/file.txt cat | uniq | wc -l > outputs/bonus1-test-1-expected.txt
+
+printf "\ncat | uniq | wc -l:        "
+
+if [ $(diff outputs/bonus1-test-1-result.txt outputs/bonus1-test-1-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
 
 
 printf "\n"
