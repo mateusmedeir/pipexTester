@@ -180,7 +180,7 @@ fi
 
 printf "\nsort | ola:                "
 
-if [ $(grep -i "Command" outputs/mand-test-10-result.txt | wc -l) != 0 ]
+if [ $(cat outputs/mand-test-10-result.txt | wc -m) != 0 ]
 then
     printf "${OK}"
 else
