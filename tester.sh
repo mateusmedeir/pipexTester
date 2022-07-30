@@ -191,10 +191,10 @@ fi
 #TEST 11
 
 
-../pipex src/file.txt "sort" "grep 'hello world'" outputs/mand-test-11-result.txt
-< src/file.txt sort | grep 'hello world' > outputs/mand-test-11-expected.txt
+../pipex src/file.txt "sort" "grep 'Temos nosso'" outputs/mand-test-11-result.txt
+< src/file.txt sort | grep 'Temos nosso' > outputs/mand-test-11-expected.txt
 
-printf "\nsort | grep 'hello world': "
+printf "\nsort | grep 'Temos nosso': "
 
 if [ $(diff outputs/mand-test-11-result.txt outputs/mand-test-11-expected.txt | wc -l) == 0 ]
 then
