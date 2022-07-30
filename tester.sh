@@ -265,4 +265,7 @@ printf "\n"
 
 
 printf "\n${BLUE}============================================${RESET}\n\n"
-printf "You can see the logs in ${BOLD}outputs/${RESET}\n\n"
+printf "${OK} = passed the test.\n"
+printf "${FAIL} = did not pass the test.\n"
+printf "${KO} = did not pass the optional test.\n"
+printf "\nYou can see the logs in ${BOLD}outputs/${RESET}\n\n"
