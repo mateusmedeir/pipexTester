@@ -20,13 +20,13 @@ clear
 #=================================== TESTERS ===================================#
 
 
-printf "\n${BLUE}=============== ${BOLD}PIPEX TESTER${BLUE} ===============${RESET}\n"
+printf "\n${BLUE}============= ${BOLD}PIPEX TESTER${BLUE} =============${RESET}\n"
 
 
 #========================= MANDATORY =========================#
 
 
-printf "\n${BOLD}MANDATORY                   Output${RESET}\n"
+printf "\n${BOLD}MANDATORY${RESET}\n"
 
 #TEST 1
 
@@ -34,7 +34,7 @@ printf "\n${BOLD}MANDATORY                   Output${RESET}\n"
 ../pipex src/file.txt "cat" "wc -l" outputs/mand-test-1-result.txt 2> /dev/null
 < src/file.txt cat | wc -l > outputs/mand-test-1-expected.txt
 
-printf "\ncat | wc -l:               "
+printf "\ncat | wc -l:                "
 
 if [ $(diff outputs/mand-test-1-result.txt outputs/mand-test-1-expected.txt | wc -l) == 0 ]
 then
@@ -50,7 +50,7 @@ fi
 ../pipex src/file.txt "cat" "grep Temos" outputs/mand-test-2-result.txt 2> /dev/null
 < src/file.txt cat | grep Temos > outputs/mand-test-2-expected.txt
 
-printf "\ncat | grep Temos:          "
+printf "\ncat | grep Temos:           "
 
 if [ $(diff outputs/mand-test-2-result.txt outputs/mand-test-2-expected.txt | wc -l) == 0 ]
 then
@@ -66,7 +66,7 @@ fi
 ../pipex src/file.txt "cat" "head -n 5" outputs/mand-test-3-result.txt 2> /dev/null
 < src/file.txt cat | head -n 5 > outputs/mand-test-3-expected.txt
 
-printf "\ncat | head -n 5:           "
+printf "\ncat | head -n 5:            "
 
 if [ $(diff outputs/mand-test-3-result.txt outputs/mand-test-3-expected.txt | wc -l) == 0 ]
 then
@@ -82,7 +82,7 @@ fi
 ../pipex src/file.txt "cat" "uniq" outputs/mand-test-4-result.txt 2> /dev/null
 < src/file.txt cat | uniq > outputs/mand-test-4-expected.txt
 
-printf "\ncat | uniq:                "
+printf "\ncat | uniq:                 "
 
 if [ $(diff outputs/mand-test-4-result.txt outputs/mand-test-4-expected.txt | wc -l) == 0 ]
 then
@@ -98,7 +98,7 @@ fi
 ../pipex src/file.txt "grep -i a" "wc -l" outputs/mand-test-5-result.txt 2> /dev/null
 < src/file.txt grep -i a | wc -l > outputs/mand-test-5-expected.txt
 
-printf "\ngrep -i a | wc -l:         "
+printf "\ngrep -i a | wc -l:          "
 
 if [ $(diff outputs/mand-test-5-result.txt outputs/mand-test-5-expected.txt | wc -l) == 0 ]
 then
@@ -114,7 +114,7 @@ fi
 ../pipex src/file.txt "grep -i a" "uniq" outputs/mand-test-6-result.txt 2> /dev/null
 < src/file.txt grep -i a | uniq > outputs/mand-test-6-expected.txt
 
-printf "\ngrep -i a | uniq:          "
+printf "\ngrep -i a | uniq:           "
 
 if [ $(diff outputs/mand-test-6-result.txt outputs/mand-test-6-expected.txt | wc -l) == 0 ]
 then
@@ -130,7 +130,7 @@ fi
 ../pipex ../ "ls -l" "wc -l" outputs/mand-test-7-result.txt 2> /dev/null
 < ../ ls -l | wc -l > outputs/mand-test-7-expected.txt
 
-printf "\nls -l | wc -l:             "
+printf "\nls -l | wc -l:              "
 
 if [ $(diff outputs/mand-test-7-result.txt outputs/mand-test-7-expected.txt | wc -l) == 0 ]
 then
@@ -146,7 +146,7 @@ fi
 ../pipex ../ "ls -a" "sort" outputs/mand-test-8-result.txt 2> /dev/null
 < ../ ls -a | sort > outputs/mand-test-8-expected.txt
 
-printf "\nls -a | sort:              "
+printf "\nls -a | sort:               "
 
 if [ $(diff outputs/mand-test-8-result.txt outputs/mand-test-8-expected.txt | wc -l) == 0 ]
 then
@@ -162,7 +162,7 @@ fi
 ../pipex src/file.txt "sort" "awk '{print \$1}'" outputs/mand-test-9-result.txt 2> /dev/null
 < src/file.txt sort | awk '{print $1}' > outputs/mand-test-9-expected.txt
 
-printf "\nsort | awk '{print \$1}':   "
+printf "\nsort | awk '{print \$1}':    "
 
 if [ $(diff outputs/mand-test-9-result.txt outputs/mand-test-9-expected.txt | wc -l) == 0 ]
 then
@@ -178,7 +178,7 @@ fi
 ../pipex src/file.txt "sort" "ola" outputs/mand-test-10-result.txt 2> outputs/mand-test-10-result.txt
 < src/file.txt sort | ola > outputs/mand-test-10-expected.txt 2> outputs/mand-test-10-expected.txt
 
-printf "\nsort | ola:                "
+printf "\nsort | ola:                 "
 
 if [ $(cat outputs/mand-test-10-result.txt | wc -m) != 0 ]
 then
@@ -194,7 +194,7 @@ fi
 ../pipex src/file.txt "sort" "grep 'Temos nosso'" outputs/mand-test-11-result.txt
 < src/file.txt sort | grep 'Temos nosso' > outputs/mand-test-11-expected.txt
 
-printf "\nsort | grep 'Temos nosso': "
+printf "\nsort | grep 'Temos nosso':  "
 
 if [ $(diff outputs/mand-test-11-result.txt outputs/mand-test-11-expected.txt | wc -l) == 0 ]
 then
@@ -210,7 +210,7 @@ fi
 ../pipex src/file.txt "sort" "grep '" outputs/mand-test-12-result.txt
 < src/file.txt sort | grep "'" > outputs/mand-test-12-expected.txt
 
-printf "\nsort | grep '              "
+printf "\nsort | grep '               "
 
 if [ $(diff outputs/mand-test-12-result.txt outputs/mand-test-12-expected.txt | wc -l) == 0 ]
 then
@@ -226,9 +226,25 @@ fi
 ../pipex src/file.txt "sort" "grep man'hã" outputs/mand-test-13-result.txt
 < src/file.txt sort | grep "man'hã" > outputs/mand-test-13-expected.txt
 
-printf "\nsort | grep man\'hã:        "
+printf "\nsort | grep man\'hã:         "
 
 if [ $(diff outputs/mand-test-13-result.txt outputs/mand-test-13-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${KO}"
+fi
+
+
+#TEST 14
+
+
+../pipex src/file.txt "/usr/bin/sort" "grep nosso" outputs/mand-test-14-result.txt
+< src/file.txt /usr/bin/sort | grep "nosso" > outputs/mand-test-14-expected.txt
+
+printf "\n/usr/bin/sort | grep nosso: "
+
+if [ $(diff outputs/mand-test-14-result.txt outputs/mand-test-14-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
@@ -242,7 +258,7 @@ printf "\n"
 #========================= BONUS 1 =========================#
 
 
-printf "\n${BOLD}BONUS 1                     Output${RESET}\n"
+printf "\n${BOLD}BONUS 1${RESET}\n"
 
 
 #TEST 1
@@ -251,9 +267,25 @@ printf "\n${BOLD}BONUS 1                     Output${RESET}\n"
 ../pipex src/file.txt "cat" "uniq" "wc -l" outputs/bonus1-test-1-result.txt 2> /dev/null
 < src/file.txt cat | uniq | wc -l > outputs/bonus1-test-1-expected.txt
 
-printf "\ncat | uniq | wc -l:        "
+printf "\ncat | uniq | wc -l:         "
 
 if [ $(diff outputs/bonus1-test-1-result.txt outputs/bonus1-test-1-expected.txt | wc -l) == 0 ]
+then
+    printf "${OK}"
+else
+    printf "${FAIL}"
+fi
+
+
+#TEST 2
+
+
+../pipex src/file.txt "cat" "grep a" "uniq" "awk '{print \$1}'" "wc -l" outputs/bonus1-test-2-result.txt 2> /dev/null
+< src/file.txt cat | grep a | uniq | awk '{print $1}' | wc -l > outputs/bonus1-test-2-expected.txt
+
+printf "\n<Five Commands>:            "
+
+if [ $(diff outputs/bonus1-test-2-result.txt outputs/bonus1-test-2-expected.txt | wc -l) == 0 ]
 then
     printf "${OK}"
 else
@@ -264,7 +296,7 @@ fi
 printf "\n"
 
 
-printf "\n${BLUE}============================================${RESET}\n\n"
+printf "\n${BLUE}========================================${RESET}\n\n"
 printf "${OK} = passed the test.\n"
 printf "${FAIL} = did not pass the test.\n"
 printf "${KO} = did not pass the optional test.\n"
