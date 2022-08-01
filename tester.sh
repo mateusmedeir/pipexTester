@@ -20,7 +20,7 @@ clear
 #=================================== TESTERS ===================================#
 
 
-printf "\n${BLUE}============= ${BOLD}PIPEX TESTER${BLUE} =============${RESET}\n"
+printf "\n${BLUE}============== ${BOLD}PIPEX TESTER${BLUE} ==============${RESET}\n"
 
 
 #========================= MANDATORY =========================#
@@ -88,7 +88,7 @@ if [ $(diff outputs/mand-test-4-result.txt outputs/mand-test-4-expected.txt | wc
 then
     printf "${OK}"
 else
-    printf "${FAIL}"
+    printf "${FAIL}"printf "\n${BLUE}========================================${RESET}\n\n"
 fi
 
 
@@ -296,8 +296,10 @@ fi
 printf "\n"
 
 
-printf "\n${BLUE}========================================${RESET}\n\n"
-printf "${OK} = passed the test.\n"
-printf "${FAIL} = did not pass the test.\n"
-printf "${KO} = did not pass the optional test.\n"
-printf "\nYou can see the logs in ${BOLD}outputs/${RESET}\n\n"
+printf "\n${BLUE}==========================================${RESET}\n\n"
+printf "${OK} = passed the test\n"
+printf "${FAIL} = did not pass the test\n"
+printf "${KO} = did not pass the optional test\n"
+printf "\nYou can see the logs in ${BOLD}outputs/${RESET}\n"
+
+printf "\n${BLUE}==========================================${RESET}\n\n"
