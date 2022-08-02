@@ -248,7 +248,7 @@ if [ $(diff outputs/mand-test-14-result.txt outputs/mand-test-14-expected.txt | 
 then
     printf "${OK}"
 else
-    printf "${KO}"
+    printf "${FAIL}"
 fi
 
 
