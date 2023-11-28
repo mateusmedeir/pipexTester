@@ -13,7 +13,7 @@ FAIL=" ${RED}[ KO ]${RESET}"
 
 
 make -C ../
-gcc -o ../pipex -L../ -lftpipex
+make bonus -C ../
 mkdir outputs
 clear
 
@@ -264,7 +264,7 @@ printf "\n${BOLD}BONUS 1${RESET}\n"
 #TEST 1
 
 
-../pipex src/file.txt "cat" "uniq" "wc -l" outputs/bonus1-test-1-result.txt 2> /dev/null
+../pipex_bonus src/file.txt "cat" "uniq" "wc -l" outputs/bonus1-test-1-result.txt 2> /dev/null
 < src/file.txt cat | uniq | wc -l > outputs/bonus1-test-1-expected.txt
 
 printf "\ncat | uniq | wc -l:         "
@@ -280,7 +280,7 @@ fi
 #TEST 2
 
 
-../pipex src/file.txt "cat" "grep a" "uniq" "awk '{print \$1}'" "wc -l" outputs/bonus1-test-2-result.txt 2> /dev/null
+../pipex_bonus src/file.txt "cat" "grep a" "uniq" "awk '{print \$1}'" "wc -l" outputs/bonus1-test-2-result.txt 2> /dev/null
 < src/file.txt cat | grep a | uniq | awk '{print $1}' | wc -l > outputs/bonus1-test-2-expected.txt
 
 printf "\n<Five Commands>:            "
